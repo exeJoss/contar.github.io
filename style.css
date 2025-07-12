@@ -130,29 +130,24 @@ button:disabled {
 
 /* Estilos para la sección de entradas dinámicas */
 #bacteriaInputsContainer {
-    /* --- CAMBIOS CLAVE AQUÍ PARA MODO MÓVIL Y ORDEN INVERSO --- */
-    display: flex; /* Usamos flexbox para controlar el orden y el apilamiento vertical */
-    flex-direction: column-reverse; /* ¡Esto hace que los nuevos elementos (que se añaden con prepend) aparezcan arriba! */
-    gap: 12px; /* Espacio entre los elementos apilados verticalmente */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
     margin-top: 15px;
     max-height: 350px;
-    overflow-y: auto; /* Permite scroll si hay muchos campos */
-    padding-right: 8px; /* Espacio para la barra de scroll */
-    align-items: center; /* Centra los campos individualmente si no ocupan todo el ancho */
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    overflow-y: auto;
+    padding-right: 8px;
 }
 
 .bacteria-field-item {
     display: flex;
-    flex-direction: column; /* Mantiene los elementos dentro de cada campo apilados */
+    flex-direction: column;
     align-items: flex-start;
     gap: 8px;
     background-color: #ffffff;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Asegura que cada campo ocupe el 100% del ancho en una sola columna */
-    max-width: 300px; /* Limita el ancho máximo de cada campo para que no se estiren demasiado */
 }
 
 .bacteria-field-item label {
@@ -221,21 +216,14 @@ button:disabled {
     }
 
     #bacteriaInputsContainer {
-        /* Restablecemos a grid para pantallas grandes para que puedan haber múltiples columnas */
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Múltiples columnas */
-        gap: 20px; /* Espacio entre columnas y filas */
-        /* Quitamos las propiedades de flexbox que forzaban la columna inversa en móviles */
-        flex-direction: unset;
-        align-items: unset;
-        width: 100%; /* Aseguramos que ocupe el ancho */
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
     }
 
     .bacteria-field-item {
-        flex-direction: row; /* Volvemos a poner los elementos del campo en fila */
+        flex-direction: row;
         align-items: center;
         gap: 10px;
-        max-width: unset; /* Quita el límite de ancho para campos individuales en escritorio */
     }
 
     .bacteria-field-item label {

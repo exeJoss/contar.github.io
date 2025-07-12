@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fieldWrapper.appendChild(input);
             fieldWrapper.appendChild(displayValue);
 
+            // *** CAMBIO CLAVE PARA EL ORDEN Y EL FOCO ***
             // Insertar el nuevo campo al principio del contenedor
             bacteriaInputsContainer.prepend(fieldWrapper); // .prepend() añade al inicio
 
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (bacteriaFieldsCount >= MAX_BACTERIA_FIELDS) {
                 addBacteriaFieldBtn.disabled = true;
-                bacteriaFieldsWarning.textContent = `Se ha alcanzado el límite de ${MAX_BACTERIA_FIELDS} campos de bacteria.`;
+                bacteriaFieldsWarning.textContent = `Se ha alcanzado el límite de ${MAX_BAACTERIA_FIELDS} campos de bacteria.`;
             }
         }
     }
