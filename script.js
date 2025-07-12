@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fieldWrapper.classList.add('bacteria-field-item');
 
             const label = document.createElement('label');
-            label.textContent = `Bacteria ${fieldLabelNumber}:`;
+            label.textContent = `Campo ${fieldLabelNumber}:`;
             label.setAttribute('for', `bacteriaInput${fieldLabelNumber}`);
 
             const input = document.createElement('input');
