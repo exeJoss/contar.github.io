@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bacteriaFieldsWarning = document.getElementById('bacteriaFieldsWarning');
 
     let mainCount = 0; // Contador principal
-    let bacteriaFieldsCount = 0; // Contador para el número de campos de bacteria
+    let bacteriaFieldsCount = 0; // Contador para el número de campos de bacteria (para el límite)
     const MAX_MAIN_COUNT = 100; // Límite del contador principal
     const MAX_BACTERIA_FIELDS = 100; // Límite máximo para los campos de bacteria
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Función para añadir un nuevo campo de bacteria
-    function addBacteriaField(fieldLabelNumber) { // Ya no acepta initialValue
+    function addBacteriaField(fieldLabelNumber) {
         if (bacteriaFieldsCount < MAX_BACTERIA_FIELDS) {
             bacteriaFieldsCount++;
             bacteriaFieldsWarning.textContent = ''; // Limpiar advertencia
@@ -49,14 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
             fieldWrapper.classList.add('bacteria-field-item');
 
             const label = document.createElement('label');
-            label.textContent = `Campo ${fieldLabelNumber}:`; // Usa el número del contador principal
-            label.setAttribute('for', `bacteriaInput${fieldLabelNumber}`); // ID basado en el número del contador
+            label.textContent = `Campo ${fieldLabelNumber}:`;
+            label.setAttribute('for', `bacteriaInput${fieldLabelNumber}`);
 
             const input = document.createElement('input');
             input.type = 'number';
             input.inputMode = 'numeric';
             input.pattern = '[0-9]*';
-            input.id = `bacteriaInput${fieldLabelNumber}`; // ID basado en el número del contador
+            input.id = `bacteriaInput${fieldLabelNumber}`;
             input.min = "0";
             input.value = "0"; // ¡Siempre se inicia en 0!
             input.placeholder = "Valor";
@@ -75,11 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
             fieldWrapper.appendChild(input);
             fieldWrapper.appendChild(displayValue);
 
-            bacteriaInputsContainer.appendChild(fieldWrapper);
+            // *** CAMBIO CLAVE PARA EL ORDEN Y EL FOCO ***
+            // Insertar el nuevo campo al principio del contenedor
+            bacteriaInputsContainer.prepend(fieldWrapper); // .prepend() añade al inicio
+
+            // Hacer focus en el input del nuevo campo
+            input.focus();
 
             if (bacteriaFieldsCount >= MAX_BACTERIA_FIELDS) {
                 addBacteriaFieldBtn.disabled = true;
-                bacteriaFieldsWarning.textContent = `Se ha alcanzado el límite de ${MAX_BACTERIA_FIELDS} campos de bacteria.`;
+                bacteriaFieldsWarning.textContent = `Se ha alcanzado el límite de ${MAX_BAACTERIA_FIELDS} campos de bacteria.`;
             }
         }
     }
@@ -108,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resetAllBtn.addEventListener('click', () => {
         mainCount = 0;
         bacteriaFieldsCount = 0;
-        bacteriaInputsContainer.innerHTML = '';
+        bacteriaInputsContainer.innerHTML = ''; // Limpiar todos los campos de bacteria
         bacteriaFieldsWarning.textContent = '';
         updateMainCounter();
     });
