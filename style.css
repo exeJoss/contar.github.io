@@ -1,0 +1,245 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alineación superior para más espacio */
+    min-height: 100vh;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 20px 10px; /* Reducido para móviles */
+    box-sizing: border-box; /* Asegura que padding no aumente el ancho total */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px; /* Reducido para móviles */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Espacio entre secciones */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px;
+}
+
+h1 {
+    color: #263238;
+    margin-bottom: 15px; /* Reducido */
+    font-size: 2em; /* Ajustado para móviles */
+}
+
+h2 {
+    color: #37474f;
+    margin-top: 0;
+    margin-bottom: 12px; /* Reducido */
+    font-size: 1.4em; /* Ajustado para móviles */
+}
+
+.main-counter-section, .dynamic-inputs-section {
+    background-color: #f0f4f8;
+    padding: 18px 25px; /* Ajustado para móviles */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    width: 100%; /* Ocupa todo el ancho de su contenedor */
+    max-width: 400px; /* Para el contador principal */
+    box-sizing: border-box;
+}
+
+.dynamic-inputs-section {
+    background-color: #e3f2fd;
+    max-width: 700px; /* Ancho para la sección de campos de bacteria */
+}
+
+#mainCounter {
+    font-size: 3.2em; /* Ajustado para móviles */
+    color: #00796b;
+    margin-bottom: 18px; /* Reducido */
+    font-weight: bold;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column; /* Botones apilados en móviles */
+    gap: 12px; /* Espacio entre botones */
+    margin-top: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Reducido para móviles */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; /* Ajustado para móviles */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    width: 100%; /* Ocupa el 100% del ancho del grupo */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#increaseCleanBtn {
+    background-color: #4caf50;
+}
+
+#increaseCleanBtn:hover {
+    background-color: #43a047;
+}
+
+#addBacteriaFieldBtn {
+    background-color: #f44336;
+}
+
+#addBacteriaFieldBtn:hover {
+    background-color: #d32f2f;
+}
+
+#resetAllBtn {
+    background-color: #607d8b;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    width: auto; /* Ancho automático para este botón */
+}
+
+#resetAllBtn:hover {
+    background-color: #455a64;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.warning-message {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/* Estilos para la sección de entradas dinámicas */
+#bacteriaInputsContainer {
+    display: grid;
+    /* 1 columna en móviles, 2 en pantallas más grandes */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px; /* Reducido para móviles */
+    margin-top: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 8px; /* Espacio para la barra de scroll */
+}
+
+.bacteria-field-item {
+    display: flex;
+    flex-direction: column; /* Apilados en móviles */
+    align-items: flex-start; /* Alineación a la izquierda */
+    gap: 8px; /* Espacio entre elementos */
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bacteria-field-item label {
+    font-weight: bold;
+    color: #424242;
+    font-size: 0.95em; /* Ajustado */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+.bacteria-field-item input[type="number"] {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #b0bec5;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: right;
+    -moz-appearance: textfield;
+}
+
+.bacteria-field-item input[type="number"]::-webkit-outer-spin-button,
+.bacteria-field-item input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.bacteria-field-item span.display-value {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #1a237e;
+    min-width: 40px;
+    text-align: right;
+    width: 100%;
+    padding-top: 5px;
+    border-top: 1px dashed #e0e0e0;
+    margin-top: 5px;
+}
+
+/* Media Queries para pantallas más grandes (responsividad) */
+@media (min-width: 600px) {
+    .container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .main-counter-section {
+        padding: 20px 30px;
+    }
+
+    #mainCounter {
+        font-size: 3.5em;
+    }
+
+    .button-group {
+        flex-direction: row;
+    }
+
+    button {
+        width: auto;
+    }
+
+    #bacteriaInputsContainer {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .bacteria-field-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .bacteria-field-item label {
+        width: auto;
+        font-size: 1em;
+    }
+
+    .bacteria-field-item input[type="number"] {
+        width: 80px;
+    }
+
+    .bacteria-field-item span.display-value {
+        width: auto;
+        padding-top: 0;
+        border-top: none;
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Responsivo con Campos Numéricos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Conteo de Muestras y Valores</h1>
+
+        <div class="main-counter-section">
+            <h2>Muestras Contadas</h2>
+            <p id="mainCounter">0</p>
+            <div class="button-group">
+                <button id="increaseCleanBtn">Muestra Limpia</button>
+                <button id="addBacteriaFieldBtn">Bacteria</button>
+            </div>
+        </div>
+
+        <div class="dynamic-inputs-section">
+            <h2>Valores de Bacteria Añadidos</h2>
+            <div id="bacteriaInputsContainer">
+                </div>
+            <p id="bacteriaFieldsWarning" class="warning-message"></p>
+        </div>
+
+        <button id="resetAllBtn">Reiniciar Todo</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
